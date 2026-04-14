@@ -1,2 +1,919 @@
-# kloetb89.github.io
-Kunststofrijplaten.net
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kunststof Rijplaten – Verhuur & Advies</title>
+  <meta name="description" content="Professionele verhuur van kunststof rijplaten. Veilig, duurzaam en direct beschikbaar. Neem contact op voor persoonlijk advies." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #F5F2EC;
+      --warm-white: #FAFAF7;
+      --charcoal: #1C1C19;
+      --mid: #5A5A55;
+      --subtle: #9A9A94;
+      --accent: #2E5E3A;
+      --accent-light: #4A8A58;
+      --accent-pale: #EBF3EE;
+      --border: rgba(28,28,25,0.10);
+      --gold: #A07840;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--warm-white);
+      color: var(--charcoal);
+      font-size: 16px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 3rem;
+      background: rgba(250,250,247,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--charcoal);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--charcoal); }
+
+    .nav-cta {
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--accent);
+      color: #fff !important;
+      padding: 0.55rem 1.4rem;
+      border-radius: 2px;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--accent-light) !important; color: #fff !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding-top: 5rem;
+    }
+
+    .hero-text {
+      padding: 6rem 4rem 6rem 6rem;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 4vw, 4rem);
+      font-weight: 300;
+      line-height: 1.18;
+      color: var(--charcoal);
+      margin-bottom: 1.75rem;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--mid);
+      max-width: 420px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.85rem 2.2rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover { background: var(--accent-light); transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-block;
+      color: var(--charcoal);
+      text-decoration: none;
+      padding: 0.85rem 2.2rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      margin-left: 1rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-secondary:hover { border-color: var(--charcoal); }
+
+    .hero-visual {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      background: var(--cream);
+    }
+
+    .hero-visual-inner {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(160deg, rgba(46,94,58,0.06) 0%, transparent 60%),
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 38px,
+          rgba(28,28,25,0.04) 38px,
+          rgba(28,28,25,0.04) 40px
+        ),
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 38px,
+          rgba(28,28,25,0.04) 38px,
+          rgba(28,28,25,0.04) 40px
+        );
+    }
+
+    .hero-plate {
+      position: absolute;
+      border-radius: 4px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+    }
+
+    .plate-main {
+      width: 320px;
+      height: 200px;
+      background: linear-gradient(135deg, #3a3a36 0%, #2a2a27 50%, #1c1c19 100%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -55%) rotate(-3deg);
+    }
+
+    .plate-main::before {
+      content: '';
+      position: absolute;
+      inset: 10px;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 2px;
+    }
+
+    .plate-main::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 18px,
+        rgba(255,255,255,0.03) 18px,
+        rgba(255,255,255,0.03) 20px
+      );
+      border-radius: 4px;
+    }
+
+    .plate-2 {
+      width: 260px;
+      height: 160px;
+      background: linear-gradient(135deg, #4a4a44 0%, #363632 100%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-20%, -30%) rotate(6deg);
+    }
+
+    .plate-tag {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-75%, 45%);
+      background: var(--accent-pale);
+      border: 1px solid rgba(46,94,58,0.15);
+      border-radius: 3px;
+      padding: 0.75rem 1.25rem;
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    .plate-tag strong { display: block; font-size: 1.1rem; font-weight: 500; }
+
+    /* ── STATS STRIP ── */
+    .stats-strip {
+      background: var(--charcoal);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .stat-item {
+      padding: 2.5rem 3rem;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 7rem 6rem; }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── TOEPASSINGEN ── */
+    #toepassingen { background: var(--cream); }
+
+    .toepassingen-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      margin-top: 3.5rem;
+      background: var(--border);
+    }
+
+    .toepassing-card {
+      background: var(--warm-white);
+      padding: 2.5rem 2rem;
+      transition: background 0.2s;
+    }
+
+    #toepassingen .toepassing-card:nth-child(1),
+    #toepassingen .toepassing-card:nth-child(4) { background: var(--accent-pale); }
+
+    .toepassing-icon {
+      width: 44px;
+      height: 44px;
+      margin-bottom: 1.25rem;
+      color: var(--accent);
+    }
+
+    .toepassing-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+    }
+
+    .toepassing-card p {
+      font-size: 0.9rem;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+
+    /* ── VOORDELEN ── */
+    #voordelen {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      padding: 0;
+    }
+
+    .voordelen-text {
+      padding: 7rem 5rem 7rem 6rem;
+    }
+
+    .voordelen-list {
+      list-style: none;
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .voordelen-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      font-size: 0.95rem;
+      color: var(--mid);
+    }
+
+    .check {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      background: var(--accent-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    .check svg { width: 10px; height: 10px; color: var(--accent); }
+
+    .voordelen-visual {
+      background: var(--charcoal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .voordelen-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        rgba(255,255,255,0.015) 0px,
+        rgba(255,255,255,0.015) 1px,
+        transparent 1px,
+        transparent 30px
+      );
+    }
+
+    .spec-card {
+      position: relative;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 4px;
+      padding: 2rem 2.5rem;
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .spec-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.88rem;
+    }
+
+    .spec-row:last-child { border-bottom: none; }
+
+    .spec-label { color: rgba(255,255,255,0.45); letter-spacing: 0.05em; }
+    .spec-value { color: #fff; font-weight: 400; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--cream); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      margin-top: 3.5rem;
+      align-items: start;
+    }
+
+    .contact-info p {
+      color: var(--mid);
+      font-size: 0.95rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--accent-pale);
+      border-radius: 2px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+    }
+
+    .contact-icon svg { width: 18px; height: 18px; }
+
+    .contact-detail-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--subtle);
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-detail-value {
+      font-size: 1rem;
+      color: var(--charcoal);
+      text-decoration: none;
+    }
+
+    .contact-detail-value:hover { color: var(--accent); }
+
+    .contact-form-area {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2.5rem;
+    }
+
+    .contact-form-area h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-form-area p {
+      font-size: 0.88rem;
+      color: var(--subtle);
+      margin-bottom: 2rem;
+    }
+
+    .form-row {
+      margin-bottom: 1.25rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 0.5rem;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: var(--charcoal);
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--accent);
+    }
+
+    textarea { resize: vertical; min-height: 120px; }
+
+    .form-submit {
+      width: 100%;
+      padding: 0.9rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 2px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 0.5rem;
+    }
+
+    .form-submit:hover { background: var(--accent-light); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--charcoal);
+      padding: 3rem 6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: #fff;
+      font-weight: 400;
+    }
+
+    .footer-brand span { color: var(--accent-light); }
+
+    .footer-domain {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.05em;
+      margin-top: 0.2rem;
+    }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-text { padding: 7rem 2rem 3rem; }
+      .hero-visual { height: 320px; }
+      .plate-main { width: 220px; height: 140px; }
+      .plate-2 { width: 180px; height: 110px; }
+
+      .stats-strip { grid-template-columns: 1fr; }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 2rem; }
+
+      section { padding: 4rem 2rem; }
+
+      .toepassingen-grid { grid-template-columns: 1fr; }
+
+      #voordelen { grid-template-columns: 1fr; }
+      .voordelen-text { padding: 4rem 2rem; }
+      .voordelen-visual { display: none; }
+
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+
+      footer { padding: 2.5rem 2rem; flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-up {
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards;
+    }
+
+    .delay-1 { animation-delay: 0.15s; }
+    .delay-2 { animation-delay: 0.3s; }
+    .delay-3 { animation-delay: 0.45s; }
+    .delay-4 { animation-delay: 0.6s; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Kunststof<span>Rijplaten</span>.net</a>
+  <ul class="nav-links">
+    <li><a href="#toepassingen">Toepassingen</a></li>
+    <li><a href="#voordelen">Voordelen</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding:0;">
+  <div class="hero-text">
+    <p class="hero-eyebrow fade-up">Verhuur van kunststof rijplaten</p>
+    <h1 class="fade-up delay-1">Stevige ondergrond,<br /><em>overal waar</em><br />u werkt</h1>
+    <p class="hero-sub fade-up delay-2">
+      Professionele kunststof rijplaten voor bouw, industrie, evenementen en grondwerk. Licht, duurzaam en direct inzetbaar op elke locatie.
+    </p>
+    <div class="fade-up delay-3">
+      <a href="#contact" class="btn-primary">Neem contact op</a>
+      <a href="#toepassingen" class="btn-secondary">Meer info</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-visual-inner"></div>
+    <div class="hero-plate plate-2"></div>
+    <div class="hero-plate plate-main"></div>
+    <div class="plate-tag">
+      <strong>HDPE Rijplaat</strong>
+      Kunststof · Herbruikbaar
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <div class="stat-number">200+</div>
+    <div class="stat-label">Platen beschikbaar</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">24u</div>
+    <div class="stat-label">Snelle levering</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">100%</div>
+    <div class="stat-label">Herbruikbaar materiaal</div>
+  </div>
+</div>
+
+<!-- TOEPASSINGEN -->
+<section id="toepassingen">
+  <p class="section-label">Toepassingen</p>
+  <h2>Inzetbaar in elke<br />werksituatie</h2>
+  <div class="toepassingen-grid">
+
+    <div class="toepassing-card">
+      <svg class="toepassing-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="6" y="28" width="32" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
+        <rect x="10" y="18" width="24" height="10" rx="1" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M14 18V14M22 18V12M30 18V14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <h3>Bouw & Infrastructuur</h3>
+      <p>Bescherm uw bouwterrein en omgeving. Ideaal als rijpad voor zwaar materieel en kranen op zachte of gevoelige ondergrond.</p>
+    </div>
+
+    <div class="toepassing-card">
+      <svg class="toepassing-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 34L36 34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 34V22L22 14L32 22V34" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        <rect x="18" y="26" width="8" height="8" rx="0.5" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+      <h3>Evenementen & Festivals</h3>
+      <p>Veilige en vlakke ondergrond voor bezoekers en voertuigen. Snel te leggen en op te ruimen, zonder schade aan grasvelden.</p>
+    </div>
+
+    <div class="toepassing-card">
+      <svg class="toepassing-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="22" cy="32" rx="14" ry="4" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M8 32V24C8 20 14 12 22 12C30 12 36 20 36 24V32" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M16 24H28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <h3>Industrie & Logistiek</h3>
+      <p>Stabiele rijpaden voor heftrucks, hoogwerkers, trucks en opleggers op buitenterreinen. Minder schade aan bestrating en ondergrond.</p>
+    </div>
+
+    <div class="toepassing-card">
+      <svg class="toepassing-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22 8L34 20H10L22 8Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        <rect x="10" y="20" width="24" height="16" rx="1" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M16 36V28H28V36" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+      <h3>Agrarische sector</h3>
+      <p>Rijroutes over weilanden en akkers beschermen. Voorkomt wielsporen en bodemdegradatie bij intensief gebruik.</p>
+    </div>
+
+    <div class="toepassing-card">
+      <svg class="toepassing-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 36L22 10L34 36H10Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M16 28L22 16L28 28" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      </svg>
+      <h3>Nutsbedrijven</h3>
+      <p>Veilige toegang voor monteurs en voertuigen bij storingen, graafwerkzaamheden of onderhoud in moeilijk begaanbaar terrein.</p>
+    </div>
+
+    <div class="toepassing-card">
+      <svg class="toepassing-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="8" y="16" width="28" height="18" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M14 16V12M30 16V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M8 24H36" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M18 30H26" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <h3>Overig maatwerk</h3>
+      <p>Heeft u een bijzondere situatie? Wij denken graag mee over de beste oplossing voor uw specifieke project.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- VOORDELEN -->
+<section id="voordelen" style="padding:0;">
+  <div class="voordelen-text">
+    <p class="section-label">Voordelen</p>
+    <h2>Waarom kiezen voor<br />kunststof rijplaten?</h2>
+    <ul class="voordelen-list">
+      <li>
+        <div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span><strong style="color:var(--charcoal);font-weight:500;">Licht en handzaam</strong> — gemakkelijk te transporteren en te plaatsen zonder zwaar materieel.</span>
+      </li>
+      <li>
+        <div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span><strong style="color:var(--charcoal);font-weight:500;">Hoge draagkracht</strong> — geschikt voor zwaar materieel tot meerdere tientallen tonnen asdruk.</span>
+      </li>
+      <li>
+        <div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span><strong style="color:var(--charcoal);font-weight:500;">Bodembescherming</strong> — geen schade aan gras, beplanting of kwetsbare ondergrond.</span>
+      </li>
+      <li>
+        <div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span><strong style="color:var(--charcoal);font-weight:500;">Anti-slip oppervlak</strong> — veilig bij nat of glad weer voor voertuigen en voetgangers.</span>
+      </li>
+      <li>
+        <div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span><strong style="color:var(--charcoal);font-weight:500;">Herbruikbaar</strong> — duurzame keuze, onbeperkt herbruikbaar en recyclebaar materiaal.</span>
+      </li>
+      <li>
+        <div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span><strong style="color:var(--charcoal);font-weight:500;">Snel inzetbaar</strong> — direct leverbaar, eenvoudig te leggen en terug te halen.</span>
+      </li>
+    </ul>
+  </div>
+  <div class="voordelen-visual">
+    <div class="spec-card">
+      <div style="font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1.25rem;">Technische specificaties</div>
+      <div class="spec-row">
+        <span class="spec-label">Materiaal</span>
+        <span class="spec-value">HDPE kunststof</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-label">Oppervlak</span>
+        <span class="spec-value">Anti-slip profiel</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-label">Toepassing</span>
+        <span class="spec-value">In- & outdoor</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label">Contact</p>
+  <h2>Neem gerust contact<br />met ons op</h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <p>
+        Wij helpen u graag bij het leveren van de juiste rijplaten voor uw project. Of u nu een kleine klus of een grootschalig project heeft — wij denken mee en leveren snel.
+      </p>
+      <div class="contact-items">
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 1C6.24 1 4 3.24 4 6C4 9.75 9 17 9 17C9 17 14 9.75 14 6C14 3.24 11.76 1 9 1Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+              <circle cx="9" cy="6" r="2" stroke="currentColor" stroke-width="1.4"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Bezoekadres</div>
+            <div class="contact-detail-value">Schouwersweg 82<br/>4451 HT, Heinkenszand</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 4.5C3 3.67 3.67 3 4.5 3H6.5L8 7L6.5 8.5C7.33 10.17 8.83 11.67 10.5 12.5L12 11L16 12.5V14.5C16 15.33 15.33 16 14.5 16C8.15 16 3 10.85 3 4.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Telefoon</div>
+            <a href="tel:+31113405355" class="contact-detail-value">+31 (0)113 40 53 55</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="4" width="14" height="10" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M2 6L9 11L16 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">E-mail</div>
+            <a href="mailto:info@kunststofrijplaten.net" class="contact-detail-value">info@kunststofrijplaten.net</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M9 5V9L12 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Bereikbaar</div>
+            <div class="contact-detail-value">Ma – Vr: 07:30 – 16:30<br/></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="contact-form-area">
+      <h3>Snel een bericht sturen</h3>
+      <p>Wij reageren doorgaans binnen één werkdag.</p>
+      <div class="form-row">
+        <label for="naam">Naam</label>
+        <input type="text" id="naam" placeholder="Uw naam" />
+      </div>
+      <div class="form-row">
+        <label for="bedrijf">Bedrijf</label>
+        <input type="text" id="bedrijf" placeholder="Bedrijfsnaam (optioneel)" />
+      </div>
+      <div class="form-row">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" placeholder="uw@email.nl" />
+      </div>
+      <div class="form-row">
+        <label for="telefoon">Telefoon</label>
+        <input type="tel" id="telefoon" placeholder="06 – 00 00 00 00" />
+      </div>
+      <div class="form-row">
+        <label for="bericht">Bericht</label>
+        <textarea id="bericht" placeholder="Omschrijf uw project of vraag..."></textarea>
+      </div>
+      <button class="form-submit" onclick="this.textContent='Verzonden ✓';this.style.background='#3B6D11';setTimeout(()=>{this.textContent='Versturen';this.style.background=''},3000)">Versturen</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">Kunststof<span>Rijplaten</span>.net</div>
+    <div class="footer-domain">www.kunststofrijplaten.net</div>
+  </div>
+  <div class="footer-copy">© 2026 KunststofRijplaten.net — Alle rechten voorbehouden</div>
+</footer>
+
+</body>
+</html>
