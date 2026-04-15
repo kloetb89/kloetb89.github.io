@@ -680,7 +680,7 @@
 <!-- STATS -->
 <div class="stats-strip">
   <div class="stat-item">
-    <div class="stat-number">200+</div>
+    <div class="stat-number">2000+</div>
     <div class="stat-label">Platen beschikbaar</div>
   </div>
   <div class="stat-item">
@@ -726,7 +726,7 @@
         <path d="M16 24H28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
       </svg>
       <h3>Industrie & Logistiek</h3>
-      <p>Stabiele rijpaden voor heftrucks, hoogwerkers, trucks en opleggers op buitenterreinen. Minder schade aan bestrating en ondergrond.</p>
+      <p>Stabiele rijpaden voor heftrucks, trucks en opleggers op buitenterreinen. Minder schade aan bestrating en ondergrond.</p>
     </div>
 
     <div class="toepassing-card">
@@ -802,12 +802,24 @@
         <span class="spec-value">HDPE kunststof</span>
       </div>
       <div class="spec-row">
+        <span class="spec-label">Formaat</span>
+        <span class="spec-value">Diverse maten</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-label">Dikte</span>
+        <span class="spec-value">Meerdere opties</span>
+      </div>
+      <div class="spec-row">
         <span class="spec-label">Oppervlak</span>
         <span class="spec-value">Anti-slip profiel</span>
       </div>
       <div class="spec-row">
         <span class="spec-label">Toepassing</span>
         <span class="spec-value">In- & outdoor</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-label">Levering</span>
+        <span class="spec-value">Heel Nederland</span>
       </div>
     </div>
   </div>
@@ -820,7 +832,7 @@
   <div class="contact-grid">
     <div class="contact-info">
       <p>
-        Wij helpen u graag bij het leveren van de juiste rijplaten voor uw project. Of u nu een kleine klus of een grootschalig project heeft — wij denken mee en leveren snel.
+        Wij helpen u graag bij het bepalen van de juiste rijplaten voor uw project. Of u nu een kleine klus of een grootschalig project heeft — wij denken mee en leveren snel.
       </p>
       <div class="contact-items">
 
@@ -833,7 +845,7 @@
           </div>
           <div>
             <div class="contact-detail-label">Bezoekadres</div>
-            <div class="contact-detail-value">Schouwersweg 82<br/>4451 HT, Heinkenszand</div>
+            <div class="contact-detail-value">Uw adres hier<br/>Postcode Plaats</div>
           </div>
         </div>
 
@@ -845,7 +857,7 @@
           </div>
           <div>
             <div class="contact-detail-label">Telefoon</div>
-            <a href="tel:+31113405355" class="contact-detail-value">+31 (0)113 40 53 55</a>
+            <a href="tel:+310000000000" class="contact-detail-value">+31 (0)00 000 0000</a>
           </div>
         </div>
 
@@ -858,7 +870,7 @@
           </div>
           <div>
             <div class="contact-detail-label">E-mail</div>
-            <a href="mailto:info@kunststofrijplaten.net" class="contact-detail-value">info@kunststofrijplaten.net</a>
+            <a href="/cdn-cgi/l/email-protection#a8c1c6cec7e8c3ddc6dbdcdbdcc7cedac1c2d8c4c9dccdc686c6cddc" class="contact-detail-value"><span class="__cf_email__" data-cfemail="4920272f2609223c273a3d3a3d262f3b20233925283d2c2767272c3d">[email&#160;protected]</span></a>
           </div>
         </div>
 
@@ -871,14 +883,14 @@
           </div>
           <div>
             <div class="contact-detail-label">Bereikbaar</div>
-            <div class="contact-detail-value">Ma – Vr: 07:30 – 16:30<br/></div>
+            <div class="contact-detail-value">Ma – Vr: 07:00 – 18:00<br/>Za: 08:00 – 13:00</div>
           </div>
         </div>
 
       </div>
     </div>
 
-  <div class="contact-form-area">
+    <div class="contact-form-area">
       <h3>Snel een bericht sturen</h3>
       <p>Wij reageren doorgaans binnen één werkdag.</p>
       <div id="form-success" style="display:none;background:var(--accent-pale);border:1px solid rgba(46,94,58,0.2);border-radius:3px;padding:1.25rem;color:var(--accent);font-size:0.92rem;margin-bottom:1rem;">
@@ -904,6 +916,9 @@
         <div class="form-row">
           <label for="bericht">Bericht</label>
           <textarea id="bericht" name="bericht" placeholder="Omschrijf uw project of vraag..."></textarea>
+        </div>                
+        <div class="form-row" style="margin-bottom:1.25rem;">
+          <div class="g-recaptcha" data-sitekey="6LdRb7gsAAAAAP5veADMeKV5jQoyPVPMjz3Mu0gO"></div>
         </div>
         <button type="submit" class="form-submit" id="submit-btn">Versturen</button>
       </form>
@@ -913,9 +928,15 @@
         const success = document.getElementById('form-success');
         form.addEventListener('submit', async function(e) {
           e.preventDefault();
+          const captcha = grecaptcha.getResponse();
+          if (!captcha) {
+            alert('Vul alstublieft de reCAPTCHA in.');
+            return;
+          }
           btn.textContent = 'Bezig met verzenden…';
           btn.disabled = true;
           const data = new FormData(form);
+          data.append('g-recaptcha-response', captcha);
           const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
           if (res.ok) {
             form.style.display = 'none';
@@ -924,6 +945,7 @@
             btn.textContent = 'Versturen mislukt – probeer opnieuw';
             btn.style.background = '#993C1D';
             btn.disabled = false;
+            grecaptcha.reset();
           }
         });
       </script>
@@ -935,10 +957,4 @@
 <footer>
   <div>
     <div class="footer-brand">Kunststof<span>Rijplaten</span>.net</div>
-    <div class="footer-domain">www.kunststofrijplaten.net</div>
-  </div>
-  <div class="footer-copy">© 2026 KunststofRijplaten.net — Alle rechten voorbehouden</div>
-</footer>
-
-</body>
-</html>
+    <div class="footer-domain">www.kunststo
