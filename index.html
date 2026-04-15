@@ -916,36 +916,37 @@
         <div class="form-row">
           <label for="bericht">Bericht</label>
           <textarea id="bericht" name="bericht" placeholder="Omschrijf uw project of vraag..."></textarea>
-        </div>                
-        <div class="form-row" style="margin-bottom:1.25rem;">
-          <div class="g-recaptcha" data-sitekey="6LdRb7gsAAAAAP5veADMeKV5jQoyPVPMjz3Mu0gO"></div>
-        </div>
+        </div>                            
+        <p style="font-size:0.72rem;color:var(--subtle);margin-top:0.75rem;line-height:1.5;">        
+          Deze site is beschermd door reCAPTCHA van Google.
+        </p>
         <button type="submit" class="form-submit" id="submit-btn">Versturen</button>
       </form>
-      <script>
+ <script>
         const form = document.getElementById('contact-form');
         const btn = document.getElementById('submit-btn');
         const success = document.getElementById('form-success');
         form.addEventListener('submit', async function(e) {
           e.preventDefault();
-          const captcha = grecaptcha.getResponse();
-          if (!captcha) {
-            alert('Vul alstublieft de reCAPTCHA in.');
-            return;
-          }
           btn.textContent = 'Bezig met verzenden…';
           btn.disabled = true;
-          const data = new FormData(form);
-          data.append('g-recaptcha-response', captcha);
-          const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
-          if (res.ok) {
-            form.style.display = 'none';
-            success.style.display = 'block';
-          } else {
+          try {
+            const token = await grecaptcha.execute('6LdRb7gsAAAAAP5veADMeKV5jQoyPVPMjz3Mu0gO', {action: 'contact'});
+            const data = new FormData(form);
+            data.append('g-recaptcha-response', token);
+            const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+            if (res.ok) {
+              form.style.display = 'none';
+              success.style.display = 'block';
+            } else {
+              btn.textContent = 'Versturen mislukt – probeer opnieuw';
+              btn.style.background = '#993C1D';
+              btn.disabled = false;
+            }
+          } catch(err) {
             btn.textContent = 'Versturen mislukt – probeer opnieuw';
             btn.style.background = '#993C1D';
             btn.disabled = false;
-            grecaptcha.reset();
           }
         });
       </script>
