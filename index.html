@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kunststof Rijplaten Verhuur - Zeeland</title>
-  <meta name="description" content="Professionele verhuur van kunststof rijplaten. Veilig, duurzaam en direct beschikbaar. Neem contact op voor persoonlijk advies." />
+  <meta name="description" content="Professionele verhuur van kunststof rijplaten en loopschotten. Veilig, duurzaam en direct beschikbaar. Neem contact op voor persoonlijk advies." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -303,6 +303,129 @@
       font-weight: 300;
       line-height: 1.2;
       margin-bottom: 1.5rem;
+    }
+
+    /* ── PRODUCTEN ── */
+    #producten {
+      background: var(--charcoal);
+      padding: 7rem 6rem;
+    }
+
+    #producten .section-label {
+      color: rgba(255,255,255,0.45);
+    }
+
+    #producten h2 {
+      color: #fff;
+      margin-bottom: 3.5rem;
+    }
+
+    .producten-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .product-card {
+      background: rgba(255,255,255,0.03);
+      padding: 3rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+      transition: background 0.2s;
+    }
+
+    .product-card:hover {
+      background: rgba(255,255,255,0.055);
+    }
+
+    .product-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      background: rgba(74,138,88,0.12);
+      border: 1px solid rgba(74,138,88,0.2);
+      padding: 0.3rem 0.75rem;
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+
+    .product-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    .product-card .product-sub {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 2.25rem;
+      line-height: 1.6;
+    }
+
+    .product-specs {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .product-spec-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      gap: 1rem;
+    }
+
+    .product-spec-key {
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      flex-shrink: 0;
+    }
+
+    .product-spec-val {
+      font-size: 0.95rem;
+      color: #fff;
+      font-weight: 400;
+      text-align: right;
+    }
+
+    .product-highlight {
+      margin-top: 1.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .product-highlight svg {
+      color: var(--accent-light);
+      flex-shrink: 0;
+    }
+
+    .product-icon-area {
+      position: absolute;
+      top: 2.5rem;
+      right: 2.5rem;
+      width: 56px;
+      height: 56px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.2);
     }
 
     /* ── TOEPASSINGEN ── */
@@ -614,6 +737,11 @@
 
       section { padding: 4rem 2rem; }
 
+      #producten { padding: 4rem 2rem; }
+      .producten-grid { grid-template-columns: 1fr; }
+      .product-card { padding: 2rem; }
+      .product-icon-area { display: none; }
+
       .toepassingen-grid { grid-template-columns: 1fr; }
 
       #voordelen { grid-template-columns: 1fr; }
@@ -648,6 +776,7 @@
 <nav>
   <a href="#" class="nav-logo">Kunststof<span>Rijplaten</span>.net</a>
   <ul class="nav-links">
+    <li><a href="#producten">Producten</a></li>
     <li><a href="#toepassingen">Toepassingen</a></li>
     <li><a href="#voordelen">Voordelen</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
@@ -660,11 +789,11 @@
     <p class="hero-eyebrow fade-up">Verhuur van kunststof rijplaten</p>
     <h1 class="fade-up delay-1">Stevige ondergrond,<br /><em>overal waar</em><br />u werkt</h1>
     <p class="hero-sub fade-up delay-2">
-      Professionele kunststof rijplaten voor bouw, industrie, evenementen en grondwerk. Licht, duurzaam en direct inzetbaar op elke locatie.
+      Professionele kunststof rijplaten en loopschotten voor bouw, industrie, evenementen en grondwerk. Licht, duurzaam en direct inzetbaar op elke locatie.
     </p>
     <div class="fade-up delay-3">
       <a href="#contact" class="btn-primary">Neem contact op</a>
-      <a href="#toepassingen" class="btn-secondary">Meer info</a>
+      <a href="#producten" class="btn-secondary">Bekijk producten</a>
     </div>
   </div>
   <div class="hero-visual">
@@ -672,7 +801,7 @@
     <div class="hero-plate plate-2"></div>
     <div class="hero-plate plate-main"></div>
     <div class="plate-tag">
-      <strong>HDPE Rijplaat</strong>
+      <strong>HMPE Rijplaat</strong>
       Kunststof · Herbruikbaar
     </div>
   </div>
@@ -693,6 +822,104 @@
     <div class="stat-label">Herbruikbaar materiaal</div>
   </div>
 </div>
+
+<!-- PRODUCTEN -->
+<section id="producten">
+  <p class="section-label">Ons assortiment</p>
+  <h2>Twee producten,<br />één oplossing</h2>
+  <div class="producten-grid">
+
+    <!-- Loopschot -->
+    <div class="product-card">
+      <div class="product-icon-area">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="10" width="20" height="12" rx="1" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M8 10V7M14 10V6M20 10V7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M7 14H10M18 14H21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="product-badge">Loopschot</div>
+      <h3>Kunststof<br />Loopschot</h3>
+      <p class="product-sub">Lichtgewicht loopplaat voor veilige doorgang voor voetgangers en licht verkeer. Voorzien van handgrepen voor eenvoudige plaatsing.</p>
+      <div class="product-specs">
+        <div class="product-spec-row">
+          <span class="product-spec-key">Afmetingen</span>
+          <span class="product-spec-val">2000 × 800 × 15 mm</span>
+        </div>
+        <div class="product-spec-row">
+          <span class="product-spec-key">Gewicht</span>
+          <span class="product-spec-val">25 kg</span>
+        </div>
+        <div class="product-spec-row">
+          <span class="product-spec-key">Draagvermogen</span>
+          <span class="product-spec-val">40 ton per m²</span>
+        </div>
+        <div class="product-spec-row">
+          <span class="product-spec-key">Materiaal</span>
+          <span class="product-spec-val">HMPE (Hoogmoleculair Polyethyleen)</span>
+        </div>
+        <div class="product-spec-row">
+          <span class="product-spec-key">Oppervlak</span>
+          <span class="product-spec-val">Anti-slip profiel</span>
+        </div>
+        <div class="product-spec-row">
+          <span class="product-spec-key">Handgrepen</span>
+          <span class="product-spec-val">Ja, geïntegreerd</span>
+        </div>
+      </div>
+      <div class="product-highlight">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8L6 12L14 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Ideaal voor voetpaden, evenementen en licht rijverkeer
+      </div>
+    </div>
+
+    <!-- Rijplaat -->
+    <div class="product-card">
+      <div class="product-icon-area">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="10" width="22" height="13" rx="1" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M6 10V7M14 10V5M22 10V7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M5 16H8M20 16H23" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M3 19.5H25" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 2"/>
+        </svg>
+      </div>
+      <div class="product-badge">Rijplaat</div>
+      <h3>Kunststof<br />Rijplaat</h3>
+      <p class="product-sub">Zware rijplaat voor kranen, vrachtwagens en zwaar materieel. Beschermt de ondergrond maximaal. Voorzien van handgrepen voor eenvoudige plaatsing.</p>
+      <div class="product-specs">
+        <div class="product-spec-row">
+          <span class="product-spec-key">Afmetingen</span>
+          <span class="product-spec-val">3000 × 1000 × 20 mm</span>
+        </div>
+        <div class="product-spec-row">
+          <span class="product-spec-key">Gewicht</span>
+          <span class="product-spec-val">56 kg</span>
+        </div>
+        <div class="product-spec-row">
+          <span class="product-spec-key">Draagvermogen</span>
+          <span class="product-spec-val">90 ton</span>
+        </div>
+        <div class="product-spec-row">
+          <span class="product-spec-key">Materiaal</span>
+          <span class="product-spec-val">HMPE (Hoogmoleculair Polyethyleen)</span>
+        </div>
+        <div class="product-spec-row">
+          <span class="product-spec-key">Oppervlak</span>
+          <span class="product-spec-val">Anti-slip profiel</span>
+        </div>
+        <div class="product-spec-row">
+          <span class="product-spec-key">Handgrepen</span>
+          <span class="product-spec-val">Ja, geïntegreerd</span>
+        </div>
+      </div>
+      <div class="product-highlight">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8L6 12L14 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Geschikt voor kranen, vrachtwagens en zwaar bouwmaterieel
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <!-- TOEPASSINGEN -->
 <section id="toepassingen">
@@ -771,15 +998,23 @@
     <ul class="voordelen-list">
       <li>
         <div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span><strong style="color:var(--charcoal);font-weight:500;">Licht en handzaam</strong> — gemakkelijk te transporteren en te plaatsen zonder zwaar materieel.</span>
+        <span><strong style="color:var(--charcoal);font-weight:500;">Vormbestendig en nagenoeg onbreekbaar</strong> — HMPE rijplaten zijn veel sterker dan andere kunststof rijplaten en behouden hun vorm onder zware belasting.</span>
       </li>
       <li>
         <div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span><strong style="color:var(--charcoal);font-weight:500;">Hoge draagkracht</strong> — geschikt voor zwaar materieel tot meerdere tientallen tonnen asdruk.</span>
+        <span><strong style="color:var(--charcoal);font-weight:500;">Geen roestsporen</strong> — in tegenstelling tot stalen rijplaten laten kunststof rijplaten geen roestafzetting achter op de ondergrond.</span>
       </li>
       <li>
         <div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span><strong style="color:var(--charcoal);font-weight:500;">Bodembescherming</strong> — geen schade aan gras, beplanting of kwetsbare ondergrond.</span>
+        <span><strong style="color:var(--charcoal);font-weight:500;">Vochtafstotend en niet poreus</strong> — nemen geen water of oliën op, waardoor ze hygiënisch blijven en eenvoudig schoon te spuiten zijn.</span>
+      </li>
+      <li>
+        <div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span><strong style="color:var(--charcoal);font-weight:500;">Hoge draagkracht</strong> — loopschotten tot 40 ton per m², rijplaten tot 90 ton. Geschikt voor het zwaarste materieel.</span>
+      </li>
+      <li>
+        <div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span><strong style="color:var(--charcoal);font-weight:500;">Licht in gewicht</strong> — eenvoudig te verplaatsen dankzij geïntegreerde handgrepen, zonder zwaar materieel.</span>
       </li>
       <li>
         <div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -787,28 +1022,49 @@
       </li>
       <li>
         <div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span><strong style="color:var(--charcoal);font-weight:500;">Herbruikbaar</strong> — duurzame keuze, onbeperkt herbruikbaar en recyclebaar materiaal.</span>
-      </li>
-      <li>
-        <div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span><strong style="color:var(--charcoal);font-weight:500;">Snel inzetbaar</strong> — direct leverbaar, eenvoudig te leggen en terug te halen.</span>
+        <span><strong style="color:var(--charcoal);font-weight:500;">Herbruikbaar & duurzaam</strong> — onbeperkt herbruikbaar en volledig recyclebaar HMPE materiaal.</span>
       </li>
     </ul>
   </div>
   <div class="voordelen-visual">
     <div class="spec-card">
-      <div style="font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1.25rem;">Technische specificaties</div>
+      <div style="font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1.25rem;">Vergelijking op een rij</div>
+
+      <div style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:0.5rem;margin-top:0.5rem;">Loopschot</div>
       <div class="spec-row">
+        <span class="spec-label">Afmeting</span>
+        <span class="spec-value">2000×800×15 mm</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-label">Gewicht</span>
+        <span class="spec-value">25 kg</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-label">Draagvermogen</span>
+        <span class="spec-value">40 t/m²</span>
+      </div>
+
+      <div style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:0.5rem;margin-top:1.25rem;">Rijplaat</div>
+      <div class="spec-row">
+        <span class="spec-label">Afmeting</span>
+        <span class="spec-value">3000×1000×20 mm</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-label">Gewicht</span>
+        <span class="spec-value">56 kg</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-label">Draagvermogen</span>
+        <span class="spec-value">90 ton</span>
+      </div>
+
+      <div style="margin-top:1.25rem;" class="spec-row">
         <span class="spec-label">Materiaal</span>
-        <span class="spec-value">HDPE kunststof</span>
+        <span class="spec-value">HMPE</span>
       </div>
       <div class="spec-row">
-        <span class="spec-label">Oppervlak</span>
-        <span class="spec-value">Anti-slip profiel</span>
-      </div>
-      <div class="spec-row">
-        <span class="spec-label">Toepassing</span>
-        <span class="spec-value">In- & outdoor</span>
+        <span class="spec-label">Handgrepen</span>
+        <span class="spec-value">Beide typen</span>
       </div>
     </div>
   </div>
@@ -821,7 +1077,7 @@
   <div class="contact-grid">
     <div class="contact-info">
       <p>
-        Wij helpen u graag bij het leveren van de juiste rijplaten voor uw project. Of u nu een kleine klus of een grootschalig project heeft — wij denken mee en leveren snel.
+        Wij helpen u graag bij het leveren van de juiste rijplaten of loopschotten voor uw project. Of u nu een kleine klus of een grootschalig project heeft — wij denken mee en leveren snel.
       </p>
       <div class="contact-items">
 
@@ -834,7 +1090,7 @@
           </div>
           <div>
             <div class="contact-detail-label">Bezoekadres</div>
-            <a href="https://www.google.com/maps/dir//Schouwersweg%2082,%204451%20HT,%20Heinkenszand" class="contact-detail-value">Schouwersweg 82<br/>4451 HT, Heinkenszand</div></a>
+            <a href="https://www.google.com/maps/dir//Schouwersweg%2082,%204451%20HT,%20Heinkenszand" class="contact-detail-value">Schouwersweg 82<br/>4451 HT, Heinkenszand</a>
           </div>
         </div>
 
@@ -872,7 +1128,7 @@
           </div>
           <div>
             <div class="contact-detail-label">Bereikbaar</div>
-            <div class="contact-detail-value">Ma – Vr: 07:30 – 16:30<br/></div>
+            <div class="contact-detail-value">Ma – Vr: 07:30 – 16:30</div>
           </div>
         </div>
 
